@@ -12,7 +12,7 @@ namespace lab10
         {
             List<Movie> movieList = new List<Movie>();
             Console.WriteLine("enter a movie genre to see titles");
-            Console.WriteLine("enter 1 for Scifi. enter 2 for Comedy. enter 3 for fantasy. enter 4 for childrens. enter 5 to see all movies");
+            Console.WriteLine("1 for Scifi. \n2 for Comedy\n3 for fantasy\n4 for childrens\n5 to see all movies");
             
 
 
@@ -26,30 +26,39 @@ namespace lab10
             movieList.Add(new Movie("Lord of the Rings", "Fantasy"));
             movieList.Add(new Movie("The Martian", "Scifi"));
             movieList.Add(new Movie("Aladin", "Childrens"));
-            
+            bool test = false;
+            int input = 0;
+            while(test == false)
+            {
+                test = int.TryParse(Console.ReadLine(), out input);
+                
+                if(test == false)
+                {
+                    Console.WriteLine("\nPlease enter a valid response");
 
-            string input =Console.ReadLine();
-            
+                }
+
+            }
             foreach (Movie movie in movieList)
             {
                 
-                if (input == "1" && movie.getGenre() == "Scifi")
+                if (input == 1 && movie.getGenre() == "Scifi")
                 {
                     movie.printTitle();
                 }
-                if (input == "2" && movie.getGenre() == "Comedy")
+                if (input == 2 && movie.getGenre() == "Comedy")
                 {
                     movie.printTitle();
                 }
-               if (input == "3" && movie.getGenre() == "Fantasy")
+               if (input == 3 && movie.getGenre() == "Fantasy")
                 {
                     movie.printTitle();
                 }
-               if(input =="4" && movie.getGenre() == "Childrens")
+               if(input == 4 && movie.getGenre() == "Childrens")
                 {
                     movie.printTitle();
                 }
-               if(input == "5")
+               if(input == 5)
                 {
                     movie.printTitle();
                 }
